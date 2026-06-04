@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producto · A&P · INTERTUBEP</title>
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .pd-layout { display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items:start; }
+  .pd-media { background:#fff; border:1px solid var(--ap-stone-200); border-radius: var(--r-lg); aspect-ratio: 4/3; overflow:hidden; position:sticky; top: calc(var(--header-h) + 24px); }
+  .pd-spec-card { background:#fff; border:1px solid var(--ap-stone-200); border-radius: var(--r-lg); padding: 26px; margin-top: 28px; }
+  .app-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  @media (max-width: 860px){ .pd-layout{ grid-template-columns:1fr; gap:28px;} .pd-media{ position:static; } }
+</style>
+</head>
+<body data-page="catalogo">
+
+<section class="section--tight" style="padding-top:28px">
+  <div class="wrap">
+    <p class="breadcrumb" style="color:var(--ap-stone-400);margin-bottom:20px"><a href="index.html" style="color:var(--ap-cyan-deep)">Inicio</a> · <a href="catalogo.html" style="color:var(--ap-cyan-deep)">Catálogo</a> · <span id="bcCat"></span></p>
+    <div id="pdRoot"></div>
+  </div>
+</section>
+
+<section class="section--tight band-cloud" id="relatedSection" style="display:none">
+  <div class="wrap">
+    <h3 style="margin-bottom:28px">Productos relacionados</h3>
+    <div class="grid cols-4" id="relatedGrid"></div>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var p = window.AP_getProduct(id);
+  var root = document.getElementById('pdRoot');
+
+  if (!p) {
+    document.getElementById('bcCat').textContent = 'Producto';
+    root.innerHTML = '<h1>Producto no encontrado</h1><p class="lead">Vuelve al catálogo para explorar todos los productos A&P.</p><a class="btn btn--primary" href="catalogo.html">Ir al catálogo</a>';
+    return;
+  }
+  document.title = p.name + ' · A&P · INTERTUBEP';
+  document.getElementById('bcCat').textContent = p.name;
+
+  var waMsg = encodeURIComponent('Hola A&P, quiero información y cotización del producto: ' + p.name + '.');
+  var waLink = 'https://wa.me/' + window.AP_WA_NUMBER + '?text=' + waMsg;
+  var pillClass = p.tipo === 'Fabricado' ? 'pill--fab' : 'pill--imp';
+  var pillText = p.tipo === 'Fabricado' ? 'Fabricado en Ecuador' : 'Importado · Distribuido';
+
+  var ficha = window.AP_fichaFor(p.category);
+  var fichaBtn = ficha
+    ? '<a class="btn btn--ghost" href="' + ficha + '" target="_blank" rel="noopener" download>' + window.AP_ICONS.arrow + 'Descargar ficha técnica (PDF)</a>'
+    : '<a class="btn btn--ghost" href="' + waLink + '" target="_blank" rel="noopener">Solicitar ficha técnica</a>';
+
+  root.innerHTML =
+    '<div class="pd-layout">' +
+      '<div class="pd-media">' + window.AP_phImage(p) + '</div>' +
+      '<div>' +
+        '<p class="eyebrow eyebrow--ink" style="color:var(--ap-cyan-deep)">' + p.categoryLabel + '</p>' +
+        '<h1 style="font-size:clamp(1.8rem,3.4vw,2.8rem)">' + p.name + '</h1>' +
+        '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">' +
+          '<span class="pill ' + pillClass + '">' + pillText + '</span>' +
+          (p.norma ? '<span class="pill pill--cyan">Norma ' + p.norma + '</span>' : '') +
+        '</div>' +
+        '<p class="lead" style="color:var(--ap-stone-600)">' + p.desc + '</p>' +
+        '<div class="hero-cta" style="margin:24px 0 8px">' +
+          '<a class="btn btn--wa" href="' + waLink + '" target="_blank" rel="noopener">' + window.AP_ICONS.whatsapp + 'Cotizar por WhatsApp</a>' +
+          fichaBtn +
+        '</div>' +
+        '<p class="small muted" style="margin-top:4px">No mostramos precios en línea. Escríbenos por WhatsApp y te enviamos cotización; la ficha técnica está disponible en PDF.</p>' +
+
+        (p.sizes.length ? '<div class="pd-spec-card"><h5 style="margin-bottom:14px;color:var(--ap-navy)">Medidas disponibles</h5><div class="size-chips">' +
+          p.sizes.map(function (s) { return '<span class="size-chip">' + s + '</span>'; }).join('') + '</div></div>' : '') +
+
+        (p.specs.length ? '<div class="pd-spec-card"><h5 style="margin-bottom:6px;color:var(--ap-navy)">Especificaciones técnicas</h5>' +
+          '<table class="spec-table" style="margin-top:12px"><tbody>' +
+          p.specs.map(function (s) { return '<tr><td style="font-weight:600;color:var(--ap-navy);width:42%">' + s[0] + '</td><td>' + s[1] + '</td></tr>'; }).join('') +
+          '</tbody></table></div>' : '') +
+
+        (p.apps.length ? '<div class="pd-spec-card"><h5 style="margin-bottom:14px;color:var(--ap-navy)">Aplicaciones</h5><div class="app-tags">' +
+          p.apps.map(function (a) {
+            var labels = { riego: 'Riego agrícola', construccion: 'Construcción', 'agua-potable': 'Agua potable', desague: 'Desagüe' };
+            return '<a class="pill pill--navy" href="aplicaciones.html#' + a + '">' + (labels[a] || a) + '</a>';
+          }).join('') + '</div></div>' : '') +
+      '</div>' +
+    '</div>';
+
+  // --- Product JSON-LD (SEO) ---
+  (function () {
+    var schema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": p.name,
+      "description": p.desc,
+      "category": p.categoryLabel,
+      "brand": { "@type": "Brand", "name": "A&P" },
+      "manufacturer": { "@type": "Organization", "name": "INTERTUBEP S.A." },
+      "material": "PVC 100% virgen",
+      "url": "https://intertubep.com.ec/producto.html?id=" + p.id,
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Vida útil", "value": "50 años" },
+        { "@type": "PropertyValue", "name": "Materia prima", "value": "PVC 100% virgen" }
+      ]
+    };
+    if (p.img) schema.image = "https://intertubep.com.ec/" + p.img;
+    if (p.norma) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Norma", "value": p.norma });
+    (p.specs || []).forEach(function (s) {
+      if (/presi/i.test(s[0])) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Resistencia a la presión", "value": s[1] });
+    });
+    if (p.sizes && p.sizes.length) {
+      schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Diámetros disponibles", "value": p.sizes.join(", ") });
+    }
+    var sc = document.createElement("script");
+    sc.type = "application/ld+json";
+    sc.textContent = JSON.stringify(schema);
+    document.head.appendChild(sc);
+    // meta description dinámica
+    var md = document.querySelector('meta[name="description"]');
+    if (!md) { md = document.createElement("meta"); md.name = "description"; document.head.appendChild(md); }
+    md.content = (p.name + ". " + p.desc).slice(0, 154);
+  })();
+
+  // Related
+  var related = window.AP_PRODUCTS.filter(function (x) { return x.category === p.category && x.id !== p.id; });
+  if (related.length < 4) {
+    window.AP_PRODUCTS.forEach(function (x) {
+      if (related.length < 4 && x.tipo === p.tipo && x.id !== p.id && related.indexOf(x) === -1) related.push(x);
+    });
+  }
+  related = related.slice(0, 4);
+  if (related.length) {
+    document.getElementById('relatedSection').style.display = '';
+    document.getElementById('relatedGrid').innerHTML = related.map(function (x) { return window.AP_renderCard(x); }).join('');
+  }
+})();
+</script>
+</body>
+</html>

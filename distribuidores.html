@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dónde comprar · Distribuidores A&P en Ecuador</title>
+<meta name="description" content="Encuentra dónde comprar tubería y conexiones PVC A&P en Ecuador, o conviértete en distribuidor. Cobertura nacional desde Guayaquil.">
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .prov-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+  .prov-chip { font:inherit; font-size:.88rem; font-weight:600; padding:9px 16px; border-radius:var(--r-pill); border:1px solid var(--ap-stone-200); background:#fff; color:var(--ap-stone-800); cursor:pointer; transition:all var(--dur); }
+  .prov-chip:hover { border-color:var(--ap-cyan-soft); }
+  .prov-chip.active { background:var(--ap-navy); color:#fff; border-color:var(--ap-navy); }
+  .dist-card { background:#fff; border:1px solid var(--ap-stone-200); border-radius:var(--r-lg); padding:24px; }
+  .dist-card h4 { color:var(--ap-navy); text-transform:none; font-size:1.15rem; margin-bottom:4px; }
+  .dist-row { display:flex; gap:9px; align-items:flex-start; font-size:.92rem; color:var(--ap-stone-600); margin-top:8px; }
+  .dist-row svg { width:17px;height:17px;color:var(--ap-cyan-deep);flex:none;margin-top:3px; }
+  .dist-card.placeholder { border-style:dashed; background:transparent; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:10px; }
+</style>
+</head>
+<body data-page="distribuidores">
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> · Dónde comprar</p>
+    <h1>Distribuidores A&P en Ecuador</h1>
+    <p class="lead">Encuentra el punto de venta A&P más cercano. ¿No hay uno en tu zona? Conviértete en distribuidor y lleva la marca a tu ciudad.</p>
+    <div class="hero-cta" style="margin-top:24px">
+      <a class="btn btn--wa" id="distWa" href="#" target="_blank" rel="noopener">Quiero ser distribuidor</a>
+      <a class="btn btn--on-navy" href="contacto.html">Contactar a ventas</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:24px">
+      <p class="eyebrow eyebrow--ink">Cobertura nacional</p>
+      <h2>Encuentra dónde comprar</h2>
+      <p class="muted" style="margin:0">Filtra por provincia. El listado se irá completando con la red oficial de distribuidores A&P.</p>
+    </div>
+    <div class="prov-filter" id="provFilter"></div>
+    <div class="grid cols-3" id="distGrid"></div>
+  </div>
+</section>
+
+<section class="section band-cloud">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+    <div class="reveal">
+      <p class="eyebrow eyebrow--ink">Programa de distribuidores</p>
+      <h2 style="margin-bottom:16px">Trabaja con la marca que vuelven a pedir</h2>
+      <p class="muted">Si tienes una ferretería, distribuidora o empresa de riego, súmate a la red A&P. Te respaldamos con precios de mayorista, stock disponible y despachos rápidos.</p>
+      <ul class="app-list" style="list-style:none;padding:0;margin:18px 0 24px;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;gap:10px"><span style="color:var(--ap-cyan-deep);font-weight:800">›</span><span>Precios y márgenes de mayorista</span></li>
+        <li style="display:flex;gap:10px"><span style="color:var(--ap-cyan-deep);font-weight:800">›</span><span>Catálogo completo: fabricación e importación</span></li>
+        <li style="display:flex;gap:10px"><span style="color:var(--ap-cyan-deep);font-weight:800">›</span><span>Respaldo de fábrica y asesoría técnica</span></li>
+        <li style="display:flex;gap:10px"><span style="color:var(--ap-cyan-deep);font-weight:800">›</span><span>Material de marca para tu punto de venta</span></li>
+      </ul>
+      <a class="btn btn--primary" id="distWa2" href="#" target="_blank" rel="noopener">Solicitar información</a>
+    </div>
+    <div class="reveal ph" data-tone="riego" style="border-radius:var(--r-lg);aspect-ratio:4/3;display:grid;place-items:center;min-height:300px">
+      <span class="ph-tag" style="position:static">Foto de almacén / punto de venta (reemplazar)</span>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  ['distWa','distWa2'].forEach(function(id){ document.getElementById(id).href = window.AP_WA_LINK; });
+
+  // Provincias de Ecuador (estructura de ejemplo — completar con datos reales)
+  var PROV = ['Guayas','Pichincha','Manabí','El Oro','Los Ríos','Santa Elena','Azuay','Tungurahua','Chimborazo','Loja','Imbabura','Cotopaxi','Esmeraldas','Santo Domingo','Cañar','Bolívar','Carchi','Morona Santiago','Pastaza','Sucumbíos'];
+
+  // Distribuidores de ejemplo (placeholders — reemplazar por datos reales)
+  var DIST = [
+    { prov:'Guayas', name:'Matriz A&P · INTERTUBEP S.A.', city:'Guayaquil', addr:'[Dirección de fábrica/oficina]', phone:'0967318889', official:true },
+    { prov:'Guayas', name:'[Distribuidor autorizado]', city:'Durán', addr:'[Dirección]', phone:'[Teléfono]' },
+    { prov:'Pichincha', name:'[Distribuidor autorizado]', city:'Quito', addr:'[Dirección]', phone:'[Teléfono]' },
+    { prov:'Manabí', name:'[Distribuidor autorizado]', city:'Portoviejo', addr:'[Dirección]', phone:'[Teléfono]' },
+    { prov:'El Oro', name:'[Distribuidor autorizado]', city:'Machala', addr:'[Dirección]', phone:'[Teléfono]' },
+    { prov:'Los Ríos', name:'[Distribuidor autorizado]', city:'Babahoyo', addr:'[Dirección]', phone:'[Teléfono]' }
+  ];
+
+  var ICON = window.AP_ICONS;
+  var active = 'all';
+
+  function buildChips() {
+    var provsWith = PROV.slice();
+    document.getElementById('provFilter').innerHTML =
+      '<button class="prov-chip active" data-p="all">Todas</button>' +
+      provsWith.map(function (p) { return '<button class="prov-chip" data-p="' + p + '">' + p + '</button>'; }).join('');
+    document.querySelectorAll('.prov-chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.prov-chip').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active'); active = b.getAttribute('data-p'); render();
+      });
+    });
+  }
+
+  function render() {
+    var list = active === 'all' ? DIST : DIST.filter(function (d) { return d.prov === active; });
+    var grid = document.getElementById('distGrid');
+    if (!list.length) {
+      grid.innerHTML = '<div class="dist-card placeholder" style="grid-column:1/-1;align-items:center;text-align:center">' +
+        '<h4 style="text-transform:none">Aún no hay distribuidor en ' + active + '</h4>' +
+        '<p class="muted" style="margin:0">Sé el primero en llevar A&P a tu provincia.</p>' +
+        '<a class="btn btn--wa btn--sm" href="' + window.AP_WA_LINK + '" target="_blank" rel="noopener">Quiero ser distribuidor</a></div>';
+      return;
+    }
+    grid.innerHTML = list.map(function (d) {
+      var waMsg = encodeURIComponent('Hola A&P, quiero comprar en ' + d.city + ' (' + d.prov + ').');
+      var wa = 'https://wa.me/' + window.AP_WA_NUMBER + '?text=' + waMsg;
+      return '<div class="dist-card">' +
+        (d.official ? '<span class="pill pill--fab" style="margin-bottom:10px">Matriz oficial</span>' : '<span class="pill pill--cyan" style="margin-bottom:10px">' + d.prov + '</span>') +
+        '<h4>' + d.name + '</h4>' +
+        '<div class="dist-row">' + ICON.pin + '<span>' + d.city + ' — ' + d.addr + '</span></div>' +
+        '<div class="dist-row">' + ICON.phone + '<span>' + d.phone + '</span></div>' +
+        '<a class="btn btn--wa btn--sm" style="margin-top:16px" href="' + wa + '" target="_blank" rel="noopener">' + ICON.whatsapp + 'Contactar</a>' +
+      '</div>';
+    }).join('');
+  }
+
+  buildChips();
+  render();
+})();
+</script>
+</body>
+</html>

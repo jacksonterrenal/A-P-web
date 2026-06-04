@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Técnico de Tubería PVC y Riego | A&P INTERTUBEP</title>
+<meta name="description" content="Guías técnicas de A&P: cómo elegir tubería PVC para riego, pegar PVC sin fugas, entender PN10 y Cédula 40, y más. Consejos para agricultores y constructores en Ecuador.">
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .guia-banner { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+    background:linear-gradient(120deg,#eaf6cf 0%,#cdeaf0 100%); border:1px solid var(--ap-stone-200);
+    border-radius:var(--r-lg); padding:24px 28px; text-decoration:none; transition:box-shadow var(--dur); }
+  .guia-banner:hover { box-shadow:var(--shadow-md); }
+</style>
+</head>
+<body data-page="blog">
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> · Blog</p>
+    <h1>Blog técnico A&P</h1>
+    <p class="lead">Guías prácticas para elegir bien, instalar mejor y aprovechar al máximo tu tubería PVC. Escritas por nuestro equipo, con el lenguaje del campo y de la obra.</p>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="wrap">
+    <a class="guia-banner" href="guia-riego.html">
+      <div>
+        <span class="card-cat" style="color:var(--ap-cyan-deep)">Guía descargable</span>
+        <h3 style="text-transform:none;color:var(--ap-navy);margin:6px 0 4px">Guía Definitiva de Sistemas de Riego con Tubería PVC A&P</h3>
+        <p class="muted" style="margin:0">Dimensiona, elige e instala tu sistema de riego paso a paso.</p>
+      </div>
+      <span class="btn btn--primary btn--sm">Leer la guía</span>
+    </a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap">
+    <div class="grid cols-3" id="blogGrid"></div>
+  </div>
+</section>
+
+<section class="section band-glow">
+  <div class="wrap center" style="max-width:680px">
+    <h2 class="reveal" style="margin-bottom:14px">¿Tienes una duda técnica?</h2>
+    <p class="lead reveal" style="color:rgba(255,255,255,.88);margin-bottom:24px">Escríbenos y te asesora nuestro equipo.</p>
+    <a class="btn btn--wa reveal" id="blogWa" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/blog-posts.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  document.getElementById('blogWa').href = window.AP_WA_LINK;
+  document.getElementById('blogGrid').innerHTML = window.AP_POSTS.map(function (b) {
+    return '<a class="card reveal" href="articulo.html?id=' + b.id + '">' +
+      '<div class="card-media ph" data-tone="' + b.tone + '" style="display:grid;place-items:center">' + window.AP_phMark(70) + '<span class="ph-tag">Imagen del artículo</span></div>' +
+      '<div class="card-body">' +
+        '<span class="card-cat">' + b.tag + '</span>' +
+        '<h4 style="font-size:1.15rem;text-transform:none;line-height:1.25">' + b.title + '</h4>' +
+        '<p class="muted" style="margin:0;font-size:.92rem">' + b.excerpt + '</p>' +
+        '<div class="card-meta">Leer artículo ' + window.AP_ICONS.arrow + '</div>' +
+      '</div>' +
+    '</a>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

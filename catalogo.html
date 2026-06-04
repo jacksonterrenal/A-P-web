@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de productos · A&P · INTERTUBEP</title>
+<meta name="description" content="Catálogo de tubería y conexiones PVC A&P: riego, desagüe, conduit, agua potable, accesorios de presión, válvulas, aspersores y más. Filtra por línea y busca por medida.">
+<link rel="stylesheet" href="assets/css/ap.css">
+</head>
+<body data-page="catalogo">
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> · Catálogo</p>
+    <h1>Catálogo de productos</h1>
+    <p class="lead">Tubería fabricada en Ecuador y conexiones que importamos y distribuimos. Filtra por línea o busca por nombre y medida.</p>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="wrap">
+    <div class="catalog-layout">
+
+      <aside class="filter-panel" id="filterPanel"></aside>
+
+      <div>
+        <div class="catalog-toolbar">
+          <div class="catalog-search">
+            <span id="csIco"></span>
+            <input type="text" id="catSearch" placeholder="Buscar: codo, válvula, aspersor, 110mm…" autocomplete="off">
+          </div>
+          <span class="catalog-count" id="catCount"></span>
+        </div>
+        <div class="grid cols-3" id="catalogGrid"></div>
+        <div id="catalogEmpty" style="display:none;text-align:center;padding:60px 20px;color:var(--ap-stone-400)">
+          <p style="font-size:1.1rem">Sin resultados. Prueba otra búsqueda o escríbenos por WhatsApp y te ayudamos a encontrarlo.</p>
+          <a class="btn btn--wa" id="emptyWa" href="#" target="_blank" rel="noopener" style="margin-top:8px">Consultar por WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  document.getElementById('csIco').innerHTML = window.AP_ICONS.search;
+  document.getElementById('emptyWa').href = window.AP_WA_LINK;
+
+  var params = new URLSearchParams(location.search);
+  var state = { cat: params.get('cat') || 'all', tipo: params.get('tipo') || 'all', q: params.get('q') || '' };
+
+  // SEO dinámico por categoría
+  (function () {
+    var SEO = {
+      'tuberia-riego': ['Tubería PVC para Riego Agrícola en Ecuador | A&P', 'Tubería PVC para sistemas de riego agrícola: presión, elevadores y accesorios. Diámetros 20–400 mm, 50 años de vida útil. Fabricado en Ecuador por A&P.'],
+      'tuberia-presion': ['Tubería PVC de Presión para Riego | A&P Ecuador', 'Tubería PVC de presión U/R y E/C para riego y agua a presión. Diámetros 20–400 mm. Materia prima 100% virgen. Cotiza con A&P INTERTUBEP.'],
+      'pegamento': ['Pegamento para Tubería PVC · Cemento Solvente | A&P', 'Pega para PVC A&P AP-2528: cemento solvente de cuerpo medio, bajo VOC, para diámetros hasta 200 mm. Presentaciones desde 1/8 de litro a galón.']
+    };
+    var s = SEO[state.cat];
+    if (s) {
+      document.title = s[0];
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.content = s[1];
+    }
+  })();
+
+  var input = document.getElementById('catSearch');
+  input.value = state.q;
+
+  // Build filter panel
+  function buildFilters() {
+    var fab = window.AP_CATEGORIES.filter(function (c) { return c.tipo === 'Fabricado'; });
+    var imp = window.AP_CATEGORIES.filter(function (c) { return c.tipo === 'Distribuido'; });
+    function group(title, items, tipoKey) {
+      return '<div class="filter-group"><h5>' + title + '</h5>' +
+        items.map(function (c) {
+          return '<button class="filter-opt" data-cat="' + c.key + '">' + c.label + '</button>';
+        }).join('') + '</div>';
+    }
+    document.getElementById('filterPanel').innerHTML =
+      '<div class="filter-group"><h5>Mostrar</h5>' +
+        '<button class="filter-opt" data-cat="all">Todos los productos</button>' +
+      '</div>' +
+      group('Fabricado en Ecuador', fab) +
+      group('Importado · Distribuido', imp);
+    bindFilters();
+  }
+  function bindFilters() {
+    document.querySelectorAll('.filter-opt').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-cat') === state.cat);
+      b.addEventListener('click', function () {
+        state.cat = b.getAttribute('data-cat');
+        document.querySelectorAll('.filter-opt').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        render();
+        history.replaceState(null, '', state.cat === 'all' ? 'catalogo.html' : 'catalogo.html?cat=' + state.cat);
+      });
+    });
+  }
+
+  function render() {
+    var q = state.q.trim().toLowerCase();
+    var list = window.AP_PRODUCTS.filter(function (p) {
+      if (state.cat !== 'all' && p.category !== state.cat) return false;
+      if (q) {
+        var hay = (p.name + ' ' + p.categoryLabel + ' ' + p.sizes.join(' ') + ' ' + p.keywords).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+    var grid = document.getElementById('catalogGrid');
+    var empty = document.getElementById('catalogEmpty');
+    document.getElementById('catCount').textContent = list.length + (list.length === 1 ? ' producto' : ' productos');
+    if (!list.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+    grid.innerHTML = list.map(function (p) { return window.AP_renderCard(p); }).join('');
+  }
+
+  input.addEventListener('input', function () { state.q = input.value; render(); });
+
+  buildFilters();
+  render();
+})();
+</script>
+</body>
+</html>

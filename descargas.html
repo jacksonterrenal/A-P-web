@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descargas · Catálogos y fichas técnicas A&P</title>
+<meta name="description" content="Descarga el catálogo A&P 2025 y las fichas técnicas de tubería y conexiones PVC. Industria ecuatoriana INTERTUBEP S.A.">
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .dl-card { display:flex; gap:18px; align-items:center; background:#fff; border:1px solid var(--ap-stone-200); border-radius:var(--r-lg); padding:22px; transition:box-shadow var(--dur),border-color var(--dur); }
+  .dl-card:hover { box-shadow:var(--shadow-md); border-color:var(--ap-cyan-soft); }
+  .dl-ico { width:58px;height:72px;flex:none;border-radius:var(--r-sm);background:var(--bg-navy-textured);display:grid;place-items:center;color:#fff;font-family:var(--font-display);font-size:.7rem;letter-spacing:.05em; position:relative; }
+  .dl-ico span { position:absolute; bottom:6px; }
+  .dl-card h4 { color:var(--ap-navy); text-transform:none; font-size:1.1rem; }
+  .dl-meta { font-size:.85rem; color:var(--ap-stone-400); }
+  .dl-body { flex:1; }
+</style>
+</head>
+<body data-page="descargas">
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> · Descargas</p>
+    <h1>Catálogos y fichas técnicas</h1>
+    <p class="lead">Descarga el catálogo A&P y las fichas técnicas por línea. ¿Necesitas la ficha de un producto puntual? Pídela por WhatsApp y te la enviamos al instante.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:860px">
+    <div class="section-head reveal" style="margin-bottom:28px">
+      <p class="eyebrow eyebrow--ink">Documentos</p>
+      <h2>Material disponible</h2>
+    </div>
+    <div class="grid" style="gap:16px" id="dlList"></div>
+
+    <div class="info-card reveal" style="margin-top:40px;background:var(--ap-navy);color:#fff;border:0;border-radius:var(--r-lg);padding:34px;text-align:center">
+      <h3 style="color:#fff;margin-bottom:10px">¿No encuentras la ficha que buscas?</h3>
+      <p style="color:rgba(255,255,255,.85);margin-bottom:22px">Escríbenos el nombre o la medida del producto y te enviamos la ficha técnica en PDF.</p>
+      <a class="btn btn--wa" id="dlWa" href="#" target="_blank" rel="noopener">Pedir ficha por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  document.getElementById('dlWa').href = window.AP_WA_LINK;
+  var DOCS = [
+    { title:'Catálogo general A&P · Edición 2025', meta:'Tubería y conexiones PVC · 91 páginas · PDF', href:'assets/docs/Catalogo-AyP-2025.pdf', big:true },
+    { title:'Ficha técnica · Tubería PVC para riego (Presión E/C)', meta:'Especificaciones y pérdidas de carga', href:'assets/docs/fichas/ficha-tuberia-riego.pdf' },
+    { title:'Ficha técnica · Accesorios Presión PN10', meta:'Codos, tees, adaptadores, bridas, cheques', href:'assets/docs/fichas/ficha-presion-pn10.pdf' },
+    { title:'Ficha técnica · Accesorios PVC Roscables', meta:'Codos, tees, uniones, reductores, tapones', href:'assets/docs/fichas/ficha-roscables.pdf' },
+    { title:'Ficha técnica · Cédula 40', meta:'Accesorios de pared gruesa para alta presión', href:'assets/docs/fichas/ficha-cedula-40.pdf' },
+    { title:'Ficha técnica · Desagüe', meta:'Codos, yees, sifones, trampas, rejillas', href:'assets/docs/fichas/ficha-desague.pdf' },
+    { title:'Ficha técnica · Unión Elastomérica (UZ)', meta:'Codos, tees, reductores, anillo de caucho', href:'assets/docs/fichas/ficha-union-elastomerica.pdf' },
+    { title:'Ficha técnica · Polipropileno (PP)', meta:'Roscables para agua fría y caliente', href:'assets/docs/fichas/ficha-polipropileno.pdf' },
+    { title:'Ficha técnica · Línea Flex', meta:'Conexiones de polietileno para riego y jardín', href:'assets/docs/fichas/ficha-flex.pdf' },
+    { title:'Ficha técnica · Válvulas', meta:'Esféricas, mariposa, bronce, acople rápido', href:'assets/docs/fichas/ficha-valvulas.pdf' },
+    { title:'Ficha técnica · Válvulas de Aire', meta:'Doble y triple acción · datos de selección', href:'assets/docs/fichas/ficha-valvulas-aire.pdf' },
+    { title:'Ficha técnica · Aspersores', meta:'Caudales, alcances y presiones por modelo', href:'assets/docs/fichas/ficha-aspersores.pdf' },
+    { title:'Ficha técnica · Goteros', meta:'Autocompensados y ajustables', href:'assets/docs/fichas/ficha-goteros.pdf' },
+    { title:'Ficha técnica · Filtros y Fertirriego', meta:'Filtros de malla/disco y kit Venturi', href:'assets/docs/fichas/ficha-filtros.pdf' },
+    { title:'Ficha técnica · Grifería y Acoples de Aluminio', meta:'Llaves de jardín y acoples Camlock', href:'assets/docs/fichas/ficha-griferia-acoples.pdf' },
+    { title:'Ficha técnica · Manómetros', meta:'Con y sin glicerina', href:'assets/docs/fichas/ficha-manometros.pdf' },
+    { title:'Ficha técnica · Medidores de Agua', meta:'Woltman bridado HD y ABS chorro único', href:'assets/docs/fichas/ficha-medidores.pdf' },
+    { title:'Ficha técnica · Hierro Dúctil y Broncería', meta:'Válvulas compuerta y mariposa HD', href:'assets/docs/fichas/ficha-hierro-ductil.pdf' },
+    { title:'Hoja de seguridad · Pega para PVC A&P', meta:'Manejo, almacenamiento y seguridad', href:'assets/docs/fichas/ficha-pegamento.pdf' }
+  ];
+  document.getElementById('dlList').innerHTML = DOCS.map(function (d) {
+    return '<div class="dl-card reveal">' +
+      '<div class="dl-ico"><span>PDF</span></div>' +
+      '<div class="dl-body"><h4>' + d.title + '</h4><p class="dl-meta" style="margin:0">' + d.meta + '</p></div>' +
+      '<a class="btn ' + (d.big ? 'btn--primary' : 'btn--ghost') + ' btn--sm" href="' + d.href + '" target="_blank" rel="noopener" download>Descargar</a>' +
+    '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

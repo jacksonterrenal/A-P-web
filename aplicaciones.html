@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicaciones · A&P · INTERTUBEP</title>
+<meta name="description" content="Soluciones A&P para riego agrícola, construcción, agua potable y desagüe. Tubería y conexiones PVC para cada proyecto en Ecuador.">
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .app-block { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .app-block.rev { direction:rtl; } .app-block.rev > * { direction:ltr; }
+  .app-media { border-radius:var(--r-lg); aspect-ratio:4/3; overflow:hidden; }
+  .app-list { list-style:none; padding:0; margin:18px 0 0; display:flex; flex-direction:column; gap:10px; }
+  .app-list li { display:flex; gap:10px; align-items:flex-start; }
+  .app-list svg { width:20px;height:20px;color:var(--ap-cyan-deep);flex:none;margin-top:3px; }
+  @media (max-width:860px){ .app-block, .app-block.rev{ grid-template-columns:1fr; direction:ltr; } }
+</style>
+</head>
+<body data-page="aplicaciones">
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> · Aplicaciones</p>
+    <h1>Una marca para cada proyecto</h1>
+    <p class="lead">Del campo a la ciudad: A&P está en el riego que da de comer, en la obra que crece y en el agua que llega a casa.</p>
+  </div>
+</section>
+
+<div id="appsRoot"></div>
+
+<section class="section band-glow">
+  <div class="wrap center" style="max-width:720px">
+    <h2 class="reveal" style="margin-bottom:16px">¿No sabes qué producto necesitas?</h2>
+    <p class="lead reveal" style="color:rgba(255,255,255,.88);margin-bottom:26px">Cuéntanos tu proyecto y te recomendamos la tubería y conexiones correctas.</p>
+    <a class="btn btn--wa reveal" id="appWa" href="#" target="_blank" rel="noopener">Asesoría por WhatsApp</a>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  document.getElementById('appWa').href = window.AP_WA_LINK;
+  var APPS = [
+    { id:'riego', tone:'riego', shape:'aspersor', eyebrow:'70% de nuestras ventas',
+      title:'Riego agrícola', riego:true,
+      lead:'Riega más, gasta menos. Tubería de presión, elevadores, aspersores, goteros y fertirriego para que cada gota llegue donde tu cultivo la necesita.',
+      points:['Tubería PVC presión U/R y E/C','Aspersores de impacto y microaspersores','Goteros autocompensados y ajustables','Filtros, válvulas de aire y kits Venturi'],
+      cats:['tuberia-riego','aspersores','goteros','filtros'] },
+    { id:'construccion', tone:'navy', shape:'tubo', eyebrow:'Obra e infraestructura',
+      title:'Construcción',
+      lead:'Tu obra merece tubería que rinda. Desagüe sanitario, conduit eléctrico y líneas de presión para edificaciones que se construyen para durar.',
+      points:['Tubería y accesorios de desagüe','Tubería conduit para canalización eléctrica','Cédula 40 para alta presión','Pegamento PVC y accesorios'],
+      cats:['tuberia-desague','tuberia-conduit','cedula-40','desague-acc'], extra:[['Pegamento PVC','pegamento-pvc.html']] },
+    { id:'agua-potable', tone:'water', shape:'acople', eyebrow:'Agua limpia, sin fugas',
+      title:'Agua potable',
+      lead:'Lleva agua limpia a cada hogar. Tubería roscable de pared gruesa, polipropileno y accesorios que sellan y duran.',
+      points:['Tubería roscable agua potable','Accesorios roscables y polipropileno','Válvulas de bronce y medidores','Material no tóxico, sin sabor ni olor'],
+      cats:['tuberia-roscable','accesorios-roscables','polipropileno','medidores'] },
+    { id:'desague', tone:'navy', shape:'tee', eyebrow:'Redes sanitarias',
+      title:'Desagüe y sanitario',
+      lead:'Evacuación confiable de aguas servidas. Tubería de pared lisa y una familia completa de codos, yees, trampas y rejillas.',
+      points:['Tubería sanitaria pared lisa','Codos, yees y tees de desagüe','Trampas U con y sin registro','Rejillas y tapones'],
+      cats:['tuberia-desague','desague-acc'] }
+  ];
+  var labels = {};
+  window.AP_CATEGORIES.forEach(function(c){ labels[c.key]=c.label; });
+  var check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+
+  document.getElementById('appsRoot').innerHTML = APPS.map(function (a, i) {
+    var band = i % 2 === 1 ? 'band-cloud' : '';
+    return '<section class="section ' + band + '" id="' + a.id + '">' +
+      '<div class="wrap"><div class="app-block ' + (i % 2 === 1 ? 'rev' : '') + '">' +
+        '<div class="reveal">' +
+          '<p class="eyebrow ' + (a.riego ? '' : 'eyebrow--ink') + '" ' + (a.riego ? 'style="color:var(--line-riego-deep)"' : '') + '>' + a.eyebrow + '</p>' +
+          '<h2>' + a.title + '</h2>' +
+          '<p class="lead" style="color:var(--ap-stone-600)">' + a.lead + '</p>' +
+          '<ul class="app-list">' + a.points.map(function (pt) { return '<li>' + check + '<span>' + pt + '</span></li>'; }).join('') + '</ul>' +
+          '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">' +
+            a.cats.map(function (c) { return '<a class="pill pill--cyan" href="catalogo.html?cat=' + c + '">' + labels[c] + '</a>'; }).join('') +
+            (a.extra ? a.extra.map(function (e) { return '<a class="pill pill--cyan" href="' + e[1] + '">' + e[0] + '</a>'; }).join('') : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="app-media reveal">' + window.AP_phImage({ tone: a.tone, shape: a.shape }) + '</div>' +
+      '</div></div>' +
+    '</section>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

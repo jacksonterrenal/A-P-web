@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artículo · Blog A&P</title>
+<meta name="description" content="Blog técnico de A&P INTERTUBEP.">
+<link rel="stylesheet" href="assets/css/ap.css">
+<style>
+  .art-wrap { max-width: 760px; }
+  .art-cover { aspect-ratio:21/8; border-radius:var(--r-lg); margin:24px 0 32px; display:grid; place-items:center; }
+  .art-body p { color:var(--ap-stone-600); font-size:1.05rem; line-height:1.75; margin:0 0 18px; }
+  .art-body h2 { font-size:clamp(1.4rem,2.6vw,1.8rem); color:var(--ap-navy); text-transform:none; margin:38px 0 12px; }
+  .art-body h3 { font-size:1.15rem; color:var(--ap-cyan-deep); text-transform:none; margin:26px 0 8px; }
+  .art-body ul, .art-body ol { color:var(--ap-stone-600); font-size:1.05rem; line-height:1.7; padding-left:22px; margin:0 0 18px; }
+  .art-body li { margin-bottom:9px; }
+  .art-body a { color:var(--ap-cyan-deep); font-weight:600; }
+  .art-callout { background:var(--ap-cloud); border-left:4px solid var(--ap-cyan); border-radius:0 var(--r-md) var(--r-md) 0; padding:18px 22px; margin:24px 0; color:var(--ap-navy); font-size:1.02rem; }
+  .art-body table { width:100%; border-collapse:collapse; margin:22px 0; font-size:.95rem; border-radius:var(--r-md); overflow:hidden; box-shadow:0 2px 12px rgba(0,23,129,.06); }
+  .art-body th { background:var(--ap-navy); color:#fff; text-align:left; padding:12px 14px; font-size:.86rem; }
+  .art-body td { padding:11px 14px; border-bottom:1px solid var(--ap-stone-200); background:#fff; }
+  .art-body tr:nth-child(even) td { background:var(--ap-cloud); }
+  .art-rel { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+</style>
+</head>
+<body data-page="blog">
+
+<section class="section--tight" style="padding-top:28px">
+  <div class="wrap art-wrap">
+    <p class="breadcrumb" style="color:var(--ap-stone-400);margin-bottom:18px"><a href="index.html" style="color:var(--ap-cyan-deep)">Inicio</a> · <a href="blog.html" style="color:var(--ap-cyan-deep)">Blog</a> · <span id="bcTitle"></span></p>
+    <div id="artRoot"></div>
+  </div>
+</section>
+
+<section class="section--tight band-cloud" id="moreSection" style="display:none">
+  <div class="wrap">
+    <h3 style="margin-bottom:24px">Sigue leyendo</h3>
+    <div class="grid cols-3" id="moreGrid"></div>
+  </div>
+</section>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/blog-posts.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/article.js"></script>
+</body>
+</html>

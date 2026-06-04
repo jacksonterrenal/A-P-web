@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan SEO INTERTUBEP A&P — Estrategia de posicionamiento orgánico</title>
+<style>
+  :root{
+    --navy:#001781; --cyan:#009DDE; --cyan-deep:#0077b6; --riego:#7CB518;
+    --cloud:#F7F7F7; --ink:#0A0C1C; --stone-600:#454a57; --stone-400:#7b8194;
+    --stone-200:#dfe3ea; --stone-100:#eef1f6; --r:14px;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cloud);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:16px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  header.doc{background:linear-gradient(135deg,#001781,#0a2bb5);color:#fff;padding:56px 0 48px}
+  header.doc .wrap{display:block}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--cyan)}
+  header.doc h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.1;margin:12px 0 14px;font-weight:800}
+  header.doc p{color:rgba(255,255,255,.85);max-width:62ch;margin:0}
+  .script{font-style:italic;color:var(--cyan);font-size:1.3rem;margin-top:20px;font-family:Georgia,serif}
+  nav.toc{background:#fff;border:1px solid var(--stone-200);border-radius:var(--r);padding:24px 28px;margin:-28px auto 40px;max-width:980px;box-shadow:0 8px 30px rgba(0,23,129,.08);position:relative}
+  nav.toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--stone-400);margin:0 0 12px}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+  nav.toc a{color:var(--navy);text-decoration:none;font-weight:600;font-size:.95rem}
+  nav.toc a:hover{color:var(--cyan-deep);text-decoration:underline}
+  section{margin:0 0 52px}
+  .phase-tag{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:.78rem;letter-spacing:.06em;padding:5px 12px;border-radius:99px;text-transform:uppercase}
+  h2.phase{font-size:1.7rem;margin:14px 0 6px;font-weight:800;color:var(--navy)}
+  h3{font-size:1.18rem;margin:30px 0 10px;color:var(--navy);font-weight:700}
+  h4{font-size:1rem;margin:20px 0 8px;color:var(--cyan-deep);text-transform:uppercase;letter-spacing:.04em}
+  p.lead{color:var(--stone-600)}
+  pre{background:#0d1224;color:#e6ebff;border-radius:12px;padding:18px 20px;overflow-x:auto;font-family:var(--mono);font-size:.82rem;line-height:1.55;border:1px solid #1c2547}
+  pre .c{color:#7c89b8}
+  code.inline{background:var(--stone-100);padding:2px 6px;border-radius:5px;font-family:var(--mono);font-size:.86em;color:var(--navy)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,23,129,.05)}
+  th{background:var(--navy);color:#fff;text-align:left;padding:11px 13px;font-size:.82rem;letter-spacing:.02em}
+  td{padding:10px 13px;border-bottom:1px solid var(--stone-200);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  tr:nth-child(even) td{background:var(--stone-100)}
+  .chk{list-style:none;padding:0;margin:12px 0}
+  .chk li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--stone-200)}
+  .chk li::before{content:"";flex:none;width:20px;height:20px;border:2px solid var(--cyan);border-radius:5px;margin-top:2px}
+  .card{background:#fff;border:1px solid var(--stone-200);border-left:4px solid var(--cyan);border-radius:10px;padding:18px 20px;margin:14px 0}
+  .card.riego{border-left-color:var(--riego)}
+  .card.warn{border-left-color:#D97500}
+  .kw{display:inline-block;background:var(--stone-100);color:var(--navy);font-weight:600;font-size:.82rem;padding:3px 9px;border-radius:6px;margin:2px 3px}
+  .sprint{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:16px 0}
+  .week{background:#fff;border:1px solid var(--stone-200);border-radius:12px;padding:18px;border-top:4px solid var(--cyan)}
+  .week h4{margin-top:0;color:var(--navy)}
+  .week ul{margin:0;padding-left:18px;font-size:.88rem;color:var(--stone-600)}
+  .week ul li{margin-bottom:5px}
+  footer.doc{background:var(--navy);color:rgba(255,255,255,.8);padding:34px 0;text-align:center;font-size:.88rem}
+  .note{font-size:.85rem;color:var(--stone-400);font-style:italic}
+  hr{border:0;border-top:1px solid var(--stone-200);margin:36px 0}
+  @media (max-width:640px){nav.toc ol{columns:1}}
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <p class="eyebrow">Plan de posicionamiento orgánico · Google Ecuador</p>
+    <h1>Estrategia SEO INTERTUBEP — Marca A&amp;P</h1>
+    <p>Plan técnico y de contenido 100% accionable para posicionar a INTERTUBEP S.A. (fabricante de tubería PVC A&amp;P, Guayaquil) en los términos comerciales de riego agrícola y pegamento PVC en un horizonte de 4 meses.</p>
+    <p class="script">¡Nuestra calidad es tu éxito!</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Contenido</h2>
+  <ol>
+    <li><a href="#objetivos">Objetivos comerciales</a></li>
+    <li><a href="#f0">Fase 0 · Configuración técnica</a></li>
+    <li><a href="#f1">Fase 1 · SEO On-Page y Schema</a></li>
+    <li><a href="#f2">Fase 2 · Estrategia de contenidos</a></li>
+    <li><a href="#f3">Fase 3 · SEO local y autoridad</a></li>
+    <li><a href="#f4">Fase 4 · KPIs y contingencia</a></li>
+    <li><a href="#sprint">Cronograma Sprint (4 semanas)</a></li>
+    <li><a href="#implementado">Ya implementado en el sitio</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+  <section id="objetivos">
+    <span class="phase-tag">Meta a 4 meses</span>
+    <h2 class="phase">Objetivos comerciales</h2>
+    <table>
+      <tr><th>Prioridad</th><th>Meta</th><th>Palabras clave objetivo</th></tr>
+      <tr><td><strong>Top 5</strong></td><td>Riego agrícola</td><td><span class="kw">tubos PVC para sistemas de riego agrícola</span><span class="kw">tuberías de riego Ecuador</span><span class="kw">tubería PVC riego</span></td></tr>
+      <tr><td><strong>Top 3</strong></td><td>Pegamento PVC</td><td><span class="kw">pegamento para tubería PVC</span><span class="kw">cemento solvente para PVC</span><span class="kw">pega para PVC Ecuador</span></td></tr>
+    </table>
+    <div class="card riego">
+      <strong>Diferenciadores E-E-A-T a martillar en todo el contenido:</strong> materia prima 100% virgen → 50 años de vida útil · amplia variedad de diámetros (20–400 mm) y conexiones · resistencia a la presión (PN10 / Cédula 40) · fabricación ecuatoriana desde 2014 · despachos rápidos.
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ===================== FASE 0 ===================== -->
+  <section id="f0">
+    <span class="phase-tag">Fase 0 · Día 1</span>
+    <h2 class="phase">Configuración técnica e implementación analítica</h2>
+
+    <h3>0.1 · Google Analytics 4 (GA4)</h3>
+    <p class="lead">Ya dejamos el <em>loader</em> de GA4 integrado en <code class="inline">assets/js/site.js</code> (se carga en todas las páginas). Solo debes reemplazar el ID. Si prefieres pegarlo manualmente en el <code class="inline">&lt;head&gt;</code>, este es el script oficial:</p>
+    <pre><span class="c">&lt;!-- Google tag (gtag.js) — pegar en &lt;head&gt; de cada página --&gt;</span>
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+&lt;/script&gt;</pre>
+    <p class="note">En el proyecto: abre <code class="inline">assets/js/site.js</code> y cambia la variable <code class="inline">GA4_ID = "G-XXXXXXXXXX"</code> por tu ID real. Listo en todo el sitio.</p>
+
+    <h3>0.2 · Validación de Google Search Console</h3>
+    <p class="lead">Dos métodos válidos (elige uno):</p>
+    <ul class="chk">
+      <li><strong>Método recomendado (Google Analytics):</strong> al tener GA4 instalado, en Search Console elige "Propiedad de dominio" o "Prefijo de URL" → verificación por <em>Google Analytics</em>. Verifica automáticamente.</li>
+      <li><strong>Método etiqueta HTML:</strong> copia la <code class="inline">&lt;meta&gt;</code> que te da Search Console y pégala en el <code class="inline">&lt;head&gt;</code> de <code class="inline">index.html</code>. Ya dejamos el espacio reservado:</li>
+    </ul>
+    <pre>&lt;meta name="google-site-verification" content="REEMPLAZAR_CODIGO_SEARCH_CONSOLE"&gt;</pre>
+
+    <h3>0.3 · Enviar sitemap y robots</h3>
+    <ul class="chk">
+      <li>Crear <code class="inline">sitemap.xml</code> con las URLs de Inicio, Catálogo, cada categoría (<code class="inline">?cat=</code>), Aplicaciones, Distribuidores, Descargas, Blog y Contacto.</li>
+      <li>Crear <code class="inline">robots.txt</code> con <code class="inline">Sitemap: https://intertubep.com.ec/sitemap.xml</code>.</li>
+      <li>Enviar el sitemap en Search Console → Sitemaps.</li>
+    </ul>
+
+    <h3>0.4 · Checklist WPO (rendimiento web)</h3>
+    <p class="note">Específico para este sitio (HTML estático + JS propio + ~150 fotos JPG + PDFs).</p>
+    <ul class="chk">
+      <li>Comprimir las fotos de producto: muchas pesan poco, pero recompresar a JPG calidad 80 y máx. 1000 px de ancho. Idealmente convertir a <strong>WebP</strong> con respaldo JPG.</li>
+      <li>Añadir <code class="inline">width</code> y <code class="inline">height</code> (o <code class="inline">aspect-ratio</code>) a las imágenes de producto para evitar saltos de layout (CLS).</li>
+      <li>Ya usamos <code class="inline">loading="lazy"</code> en las fotos del catálogo — mantenerlo.</li>
+      <li>Minificar <code class="inline">ap.css</code>, <code class="inline">site.js</code> y <code class="inline">products.js</code> en producción (sufijo <code class="inline">.min</code>).</li>
+      <li>Servir todo con <strong>compresión gzip/brotli</strong> desde el hosting.</li>
+      <li>Activar caché de navegador (<code class="inline">Cache-Control</code>) para CSS/JS/imágenes (1 año, con hash de versión).</li>
+      <li>Servir el sitio por <strong>HTTPS</strong> y forzar redirección 301 de http→https y de no-www→www (o viceversa, una sola versión canónica).</li>
+      <li>Los PDFs de fichas (algunos &gt;1 MB) deben abrir en pestaña nueva (ya lo hacen) y no bloquear la carga.</li>
+      <li>Precargar la fuente del logo/título si se usa una fuente web: <code class="inline">&lt;link rel="preload" as="font"&gt;</code>.</li>
+      <li>Medir con <strong>PageSpeed Insights</strong> y apuntar a Core Web Vitals en verde (LCP &lt;2,5s, CLS &lt;0,1, INP &lt;200ms).</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ===================== FASE 1 ===================== -->
+  <section id="f1">
+    <span class="phase-tag">Fase 1 · Código listo</span>
+    <h2 class="phase">SEO On-Page y arquitectura técnica</h2>
+
+    <h3>1.1 · Schema Product (tubería de riego)</h3>
+    <p class="lead">Ya lo generamos <strong>dinámicamente por producto</strong> en <code class="inline">producto.html</code>. Este es el modelo optimizado para la tubería de riego:</p>
+    <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Tubería PVC Presión U/R para Riego",
+  "description": "Tubería gris de presión con unión por empaque (U/R) para riego tecnificado y conducción de agua a presión.",
+  "category": "Tubería PVC Riego",
+  "brand": { "@type": "Brand", "name": "A&amp;P" },
+  "manufacturer": { "@type": "Organization", "name": "INTERTUBEP S.A." },
+  "material": "PVC 100% virgen",
+  "image": "https://intertubep.com.ec/assets/img/productos/tubo-presion-ur.jpg",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Vida útil", "value": "50 años" },
+    { "@type": "PropertyValue", "name": "Resistencia a la presión", "value": "PN10 / hasta 1.25 MPa" },
+    { "@type": "PropertyValue", "name": "Norma", "value": "NTE INEN 1373" },
+    { "@type": "PropertyValue", "name": "Diámetros disponibles", "value": "63–400 mm" }
+  ]
+}
+&lt;/script&gt;</pre>
+    <p class="note">Nota: no incluimos <code class="inline">offers/price</code> porque la política es no mostrar precios. Si más adelante quieres aparecer con rich snippet de precio, habría que agregar <code class="inline">offers</code>.</p>
+
+    <h3>1.2 · Schema FAQPage (dudas de ingenieros)</h3>
+    <p class="lead">Ya integrado en el <code class="inline">&lt;head&gt;</code> de <code class="inline">index.html</code>. Las 3 preguntas críticas:</p>
+    <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question",
+      "name": "¿Qué diámetros de tubería PVC para riego fabrica A&amp;P?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Desde 20 mm hasta 400 mm, con unión E/C y U/R, para redes principales, secundarias y laterales de riego tecnificado." } },
+    { "@type": "Question",
+      "name": "¿Qué presión de trabajo soporta la tubería PVC A&amp;P?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Desde 0,50 hasta 1,60 MPa según diámetro y serie. Accesorios en PN10 y Cédula 40, válvulas de hasta 232 PSI." } },
+    { "@type": "Question",
+      "name": "¿Cuánto dura la tubería PVC A&amp;P?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Hasta 50 años: se fabrica con materia prima 100% virgen, sin material reciclado." } }
+  ]
+}
+&lt;/script&gt;</pre>
+
+    <h3>1.3 · Títulos y meta descripciones optimizados</h3>
+    <table>
+      <tr><th>Página</th><th>&lt;title&gt; (&lt;60 car.)</th><th>&lt;meta description&gt; (&lt;155 car.)</th></tr>
+      <tr>
+        <td><strong>Inicio</strong></td>
+        <td>Tubería PVC para Riego y Agua Potable | A&amp;P INTERTUBEP Ecuador</td>
+        <td>Fabricante de tubería PVC A&amp;P en Ecuador: riego agrícola, desagüe, conduit y agua potable. Materia prima 100% virgen, 50 años de vida útil. Cotiza hoy.</td>
+      </tr>
+      <tr>
+        <td><strong>Categoría Riego</strong></td>
+        <td>Tubería PVC para Riego Agrícola en Ecuador | A&amp;P</td>
+        <td>Tubería PVC para sistemas de riego agrícola: presión, elevadores y accesorios. Diámetros 20–400 mm, 50 años de vida útil. Fabricado en Ecuador por A&amp;P.</td>
+      </tr>
+      <tr>
+        <td><strong>Pegamento PVC</strong></td>
+        <td>Pegamento para Tubería PVC · Cemento Solvente | A&amp;P</td>
+        <td>Pega para PVC A&amp;P AP-2528: cemento solvente de cuerpo medio, bajo VOC, para diámetros hasta 200 mm. Presentaciones desde 1/8 de litro a galón.</td>
+      </tr>
+    </table>
+    <p class="note">Los tres ya están aplicados en el sitio (Inicio en el HTML; Riego y Pegamento se inyectan por JS al filtrar la categoría).</p>
+
+    <h3>1.4 · Matriz de enlazado interno</h3>
+    <p class="lead">Anchor text exacto para transferir autoridad hacia las páginas dinero (riego y pegamento).</p>
+    <table>
+      <tr><th>Desde</th><th>Hacia</th><th>Anchor text exacto</th></tr>
+      <tr><td>Inicio (hero / líneas)</td><td>Categoría Riego</td><td>tubería PVC para riego agrícola</td></tr>
+      <tr><td>Quiénes Somos (diferenciador 50 años)</td><td>Categoría Riego</td><td>tuberías de riego de materia prima virgen</td></tr>
+      <tr><td>Blog: "Cómo elegir tubería de riego"</td><td>Categoría Riego</td><td>tubería PVC de presión para riego</td></tr>
+      <tr><td>Blog: "Cómo elegir tubería de riego"</td><td>Producto Tubería Presión U/R</td><td>tubería de presión U/R</td></tr>
+      <tr><td>Aplicaciones → Riego</td><td>Categoría Riego + Aspersores</td><td>sistema de riego A&amp;P completo</td></tr>
+      <tr><td>Blog: "Cómo pegar tubería PVC"</td><td>Producto Pegamento</td><td>pegamento para tubería PVC A&amp;P</td></tr>
+      <tr><td>Producto Pegamento</td><td>Categoría Presión PN10</td><td>accesorios PVC de presión pegables</td></tr>
+      <tr><td>Cada ficha de producto</td><td>Descargas</td><td>descargar ficha técnica en PDF</td></tr>
+      <tr><td>Footer (sitewide)</td><td>Categorías clave</td><td>tubería riego · desagüe · conduit · roscable</td></tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- ===================== FASE 2 ===================== -->
+  <section id="f2">
+    <span class="phase-tag">Fase 2 · Contenidos</span>
+    <h2 class="phase">Estrategia de contenidos inbound</h2>
+
+    <h3>2.1 · Plan editorial — 8 artículos</h3>
+    <table>
+      <tr><th>#</th><th>Título (H1)</th><th>Keyword principal</th><th>Intención</th></tr>
+      <tr><td>1</td><td>Cómo elegir la tubería PVC correcta para tu sistema de riego</td><td>tubería PVC para riego</td><td>Comercial</td></tr>
+      <tr><td>2</td><td>Pegamento para tubería PVC: guía de aplicación paso a paso</td><td>pegamento para tubería PVC</td><td>Comercial</td></tr>
+      <tr><td>3</td><td>PN10, Cédula 40, U/R y E/C: qué significan y cuándo usar cada uno</td><td>tubería PVC PN10 Cédula 40</td><td>Informativa</td></tr>
+      <tr><td>4</td><td>Tabla de diámetros y presiones de tubería PVC para riego en Ecuador</td><td>diámetros tubería PVC riego</td><td>Informativa</td></tr>
+      <tr><td>5</td><td>¿Por qué la materia prima 100% virgen da 50 años de vida útil?</td><td>tubería PVC materia prima virgen</td><td>Informativa</td></tr>
+      <tr><td>6</td><td>Cuánto pegamento PVC necesitas por diámetro y unión</td><td>cuánto cemento solvente PVC</td><td>Comercial</td></tr>
+      <tr><td>7</td><td>Riego por aspersión vs. goteo: qué tubería y accesorios usar</td><td>riego por aspersión y goteo</td><td>Informativa</td></tr>
+      <tr><td>8</td><td>Errores comunes al instalar tubería PVC (y cómo evitarlos)</td><td>instalación tubería PVC errores</td><td>Informativa</td></tr>
+    </table>
+
+    <h3>2.2 · Lead Magnet — "Guía Definitiva de Sistemas de Riego con Tubería PVC A&amp;P"</h3>
+    <div class="card riego">
+      <p style="margin:0 0 8px"><strong>H1:</strong> Guía Definitiva de Sistemas de Riego con Tubería PVC A&amp;P</p>
+      <p style="margin:0;color:var(--stone-600)"><strong>Copy de introducción:</strong> Un buen sistema de riego no se mide el día que se instala, sino diez cosechas después. En esta guía reunimos la experiencia de A&amp;P fabricando tubería PVC en Ecuador desde 2014 para ayudarte a dimensionar, elegir y montar un sistema que riegue parejo, resista la presión y dure décadas. Desde el cálculo de diámetros hasta la elección entre aspersión y goteo, aquí tienes el camino completo —sin tecnicismos vacíos— para que cada gota trabaje por tu cultivo.</p>
+    </div>
+    <h4>Estructura de encabezados</h4>
+    <pre>H1 · Guía Definitiva de Sistemas de Riego con Tubería PVC A&amp;P
+  H2 · 1. Antes de comprar: cómo dimensionar tu sistema de riego
+    H3 · Caudal, presión y área a regar
+    H3 · Cómo calcular el diámetro de la tubería principal
+  H2 · 2. Tipos de tubería PVC para riego y cuándo usar cada una
+    H3 · Presión U/R vs. E/C
+    H3 · Diámetros disponibles (20–400 mm) y series de presión
+  H2 · 3. Aspersión o goteo: elige el método correcto
+    H3 · Aspersores: caudales y alcances por modelo A&amp;P
+    H3 · Goteo y fertirriego: goteros, filtros y Venturi
+  H2 · 4. Accesorios que no pueden faltar
+    H3 · Válvulas de aire, cheques y collarines
+  H2 · 5. Instalación: pegado, uniones y pruebas de presión
+  H2 · 6. Mantenimiento para llegar a 50 años de vida útil
+  H2 · Checklist descargable + cotización con A&amp;P</pre>
+
+    <h3>2.3 · Copy de landing "Pegamento para tubería PVC"</h3>
+    <div class="card">
+      <p><strong>H1:</strong> Pegamento para tubería PVC A&amp;P — la unión que no falla</p>
+      <p><strong>Intro:</strong> Una tubería de presión es tan fuerte como su unión más débil. La Pega para PVC A&amp;P AP-2528 es un cemento solvente de cuerpo medio formulado para fusionar tubería y accesorios PVC en uniones que resisten presión, humedad y el paso del tiempo.</p>
+      <p><strong>H2 · Especificaciones técnicas de fusión.</strong> Cemento solvente de cuerpo medio, bajo VOC. Fusión en frío que une químicamente espiga y campana. Tiempo de fraguado según diámetro y temperatura ambiente; apto para ambientes húmedos. Rango de almacenamiento 5 °C – 44 °C. Vida útil 3 años.</p>
+      <p><strong>H2 · Compatibilidad de diámetros.</strong> Diseñado para uniones de tubería y accesorios PVC de presión hasta 200 mm de diámetro. Aplicar en ambas piezas a fusionar para garantizar un sello uniforme.</p>
+      <p><strong>H2 · Seguridad de agarre.</strong> Cuerpo medio que da tiempo de maniobra sin escurrir, para un agarre firme incluso en diámetros grandes y montajes verticales. Presentaciones desde 1/8 de litro (uso doméstico y de obra) hasta galón de 4.000 ml (uso industrial).</p>
+      <p style="margin-bottom:0"><strong>H2 · CTA distribuidores.</strong> ¿Ferretería o distribuidora? Lleva la Pega A&amp;P a tu mostrador con precios de mayorista y despacho rápido. <em>"Solicita precios de distribuidor por WhatsApp."</em></p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ===================== FASE 3 ===================== -->
+  <section id="f3">
+    <span class="phase-tag">Fase 3 · Ecuador</span>
+    <h2 class="phase">SEO local y autoridad nacional</h2>
+
+    <h3>3.1 · Descripción para Google Business Profile (≤750 car.)</h3>
+    <div class="card">
+      <p style="margin:0">INTERTUBEP S.A. es fabricante ecuatoriano de tubería y conexiones de PVC bajo la marca A&amp;P, con planta y oficinas en Guayaquil desde 2014. Producimos tubería PVC para riego agrícola, desagüe, conduit eléctrico y agua potable, y distribuimos válvulas, aspersores, goteros, pegamento y accesorios de presión PN10 y Cédula 40. Nuestra tubería se fabrica con materia prima 100% virgen, lo que garantiza hasta 50 años de vida útil y alta resistencia a la presión. Atendemos a agricultores, constructores, ferreterías y distribuidores en todo el Ecuador con amplia variedad de diámetros y despachos rápidos. Cotiza por WhatsApp. ¡Nuestra calidad es tu éxito!</p>
+    </div>
+    <p class="note">Categorías GBP sugeridas: "Fabricante de tuberías", "Proveedor de equipos de riego", "Tienda de materiales de construcción". Sube fotos de planta, producto y despachos; mantén horario Lun–Vie 8:30–17:30.</p>
+
+    <h3>3.2 · Plantillas para pedir reseñas 5★</h3>
+    <h4>WhatsApp</h4>
+    <div class="card riego">
+      <p style="margin:0">Hola [Nombre], gracias por confiar en A&amp;P 🙌. ¿Nos ayudarías con una reseña corta en Google sobre tu experiencia con nuestra tubería/atención? Te toma 1 minuto y nos ayuda muchísimo a seguir creciendo como industria ecuatoriana. Aquí el enlace directo: [LINK_RESEÑA]. ¡Gracias!</p>
+    </div>
+    <h4>Email</h4>
+    <div class="card">
+      <p style="margin:0 0 6px"><strong>Asunto:</strong> ¿Nos regalas 1 minuto, [Nombre]?</p>
+      <p style="margin:0">Estimado/a [Nombre]: fue un gusto atender su pedido de tubería y conexiones A&amp;P. Si quedó conforme con la calidad y el despacho, ¿podría dejarnos una reseña en Google? Su opinión ayuda a otros agricultores y constructores a elegir con confianza. Solo haga clic aquí: [LINK_RESEÑA]. Quedamos atentos para su próximo proyecto. Atentamente, Equipo INTERTUBEP S.A.</p>
+    </div>
+
+    <h3>3.3 · Directorios y asociaciones (backlinks locales Ecuador)</h3>
+    <ul class="chk">
+      <li><strong>Cámara de Industrias de Guayaquil</strong> — directorio de socios industriales.</li>
+      <li><strong>Cámara de la Construcción de Guayaquil / CAMICON</strong> — proveedores de materiales.</li>
+      <li><strong>Cámara de Agricultura de la I Zona</strong> y gremios agrícolas (riego).</li>
+      <li><strong>PuntoEx / Guía de Negocios del Ecuador y directorios B2B locales</strong> (ej. Ecuadorexporta, páginas amarillas EC).</li>
+      <li><strong>SERCOP</strong> (Servicio Nacional de Contratación Pública) — registro como proveedor del Estado para obras públicas y municipios.</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ===================== FASE 4 ===================== -->
+  <section id="f4">
+    <span class="phase-tag">Fase 4 · Monitoreo</span>
+    <h2 class="phase">KPIs y plan de contingencia</h2>
+
+    <h3>4.1 · KPIs mensuales (solo herramientas gratuitas)</h3>
+    <table>
+      <tr><th>KPI</th><th>Herramienta</th><th>Meta mes 4</th></tr>
+      <tr><td>Posición media "riego agrícola" (clúster)</td><td>Search Console → Rendimiento</td><td>Top 5</td></tr>
+      <tr><td>Posición media "pegamento PVC" (clúster)</td><td>Search Console</td><td>Top 3</td></tr>
+      <tr><td>Impresiones orgánicas totales</td><td>Search Console</td><td>+150% vs. mes 1</td></tr>
+      <tr><td>Clics orgánicos / CTR</td><td>Search Console</td><td>CTR &gt;3%</td></tr>
+      <tr><td>Páginas indexadas</td><td>Search Console → Indexación</td><td>100% de URLs válidas</td></tr>
+      <tr><td>Core Web Vitals (URLs buenas)</td><td>Search Console → Experiencia</td><td>&gt;90% en verde</td></tr>
+      <tr><td>Usuarios orgánicos</td><td>GA4 → Adquisición</td><td>Tendencia +</td></tr>
+      <tr><td>Conversiones (clic WhatsApp / descarga ficha)</td><td>GA4 → Eventos</td><td>Crecimiento mensual</td></tr>
+    </table>
+    <p class="note">Configura en GA4 eventos personalizados como conversión: clic en botón WhatsApp, descarga de ficha PDF y envío del formulario de contacto.</p>
+
+    <h3>4.2 · Plan B (si a 60 días no hay Top 15)</h3>
+    <ul class="chk">
+      <li>Revisar <strong>intención de búsqueda</strong>: ¿Google muestra fabricantes o artículos? Ajustar el tipo de página objetivo (categoría vs. blog).</li>
+      <li>Reforzar <strong>enlazado interno</strong> hacia la página estancada con más anchors exactos desde blog y home.</li>
+      <li>Ampliar el <strong>contenido on-page</strong>: agregar tablas de diámetros/presiones, FAQ específico y 300–500 palabras de texto único en la categoría.</li>
+      <li>Optimizar <strong>title/H1</strong> probando variantes con el modificador geográfico ("Ecuador", "Guayaquil").</li>
+      <li>Conseguir <strong>2–3 backlinks</strong> nuevos de los directorios de Fase 3 hacia la URL objetivo.</li>
+      <li>Verificar <strong>canibalización</strong>: que no compitan dos URLs por la misma keyword; consolidar si ocurre.</li>
+      <li>Mejorar <strong>WPO</strong> de la URL (velocidad/CWV) si está en rojo.</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ===================== SPRINT ===================== -->
+  <section id="sprint">
+    <span class="phase-tag">Ejecución</span>
+    <h2 class="phase">Cronograma Sprint de 4 semanas (repetible)</h2>
+    <div class="sprint">
+      <div class="week">
+        <h4>Semana 1 · Base técnica</h4>
+        <ul>
+          <li>Instalar GA4 (ID real) y verificar Search Console</li>
+          <li>Subir sitemap.xml + robots.txt</li>
+          <li>Auditoría WPO + comprimir imágenes</li>
+          <li>Validar Schema en Rich Results Test</li>
+        </ul>
+      </div>
+      <div class="week">
+        <h4>Semana 2 · On-Page</h4>
+        <ul>
+          <li>Aplicar títulos/meta a todas las páginas</li>
+          <li>Texto único en categorías Riego y Pegamento</li>
+          <li>Implementar matriz de enlazado interno</li>
+          <li>Crear ficha Google Business Profile</li>
+        </ul>
+      </div>
+      <div class="week">
+        <h4>Semana 3 · Contenido</h4>
+        <ul>
+          <li>Publicar 2 artículos de blog (riego + pegamento)</li>
+          <li>Maquetar el Lead Magnet (guía de riego)</li>
+          <li>Alta en 2 directorios/cámaras</li>
+          <li>Lanzar campaña de reseñas 5★</li>
+        </ul>
+      </div>
+      <div class="week">
+        <h4>Semana 4 · Medición</h4>
+        <ul>
+          <li>Reporte KPIs (Search Console + GA4)</li>
+          <li>Revisar posiciones de keywords objetivo</li>
+          <li>Ajustes según Plan B si aplica</li>
+          <li>Planificar artículos del siguiente sprint</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Repetir el ciclo cada 4 semanas, rotando los 8 artículos del plan editorial y sumando backlinks/reseñas en cada vuelta.</p>
+  </section>
+
+  <hr>
+
+  <!-- ===================== IMPLEMENTADO ===================== -->
+  <section id="implementado">
+    <span class="phase-tag" style="background:var(--riego)">Hecho</span>
+    <h2 class="phase">Ya implementado en tu sitio</h2>
+    <ul class="chk">
+      <li><strong>GA4</strong>: loader integrado en <code class="inline">site.js</code> (solo falta pegar tu ID en <code class="inline">GA4_ID</code>).</li>
+      <li><strong>Search Console</strong>: <code class="inline">&lt;meta&gt;</code> de verificación reservada en <code class="inline">index.html</code>.</li>
+      <li><strong>Organization + WebSite Schema</strong>: inyectado en todas las páginas (E-E-A-T, dirección, redes, fundación 2014).</li>
+      <li><strong>Product Schema</strong>: generado por producto en <code class="inline">producto.html</code> (material, 50 años, presión, norma, diámetros).</li>
+      <li><strong>FAQPage Schema</strong>: 3 preguntas de ingenieros en el Inicio.</li>
+      <li><strong>Títulos y meta descriptions</strong> optimizados para Inicio, categoría Riego y producto Pegamento.</li>
+      <li><strong>meta description dinámica</strong> por producto.</li>
+      <li><code class="inline">loading="lazy"</code> en las fotos del catálogo.</li>
+    </ul>
+    <div class="card warn">
+      <strong>Pendiente de tu lado:</strong> reemplazar <code class="inline">G-XXXXXXXXXX</code> por tu ID GA4 real, pegar el código de verificación de Search Console, crear sitemap.xml/robots.txt en el servidor, y publicar los artículos del plan editorial.
+    </div>
+  </section>
+
+</div>
+
+<footer class="doc">
+  <div class="wrap">© INTERTUBEP S.A. · Marca A&amp;P · Plan SEO para www.intertubep.com.ec · Guayaquil, Ecuador</div>
+</footer>
+
+</body>
+</html>
