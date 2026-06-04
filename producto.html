@@ -1,74 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Producto · A&P · INTERTUBEP</title>
-<link rel="stylesheet" href="assets/css/ap.css">
-<style>
-  .pd-layout { display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items:start; }
-  .pd-media { background:#fff; border:1px solid var(--ap-stone-200); border-radius: var(--r-lg); aspect-ratio: 4/3; overflow:hidden; position:sticky; top: calc(var(--header-h) + 24px); }
-  .pd-spec-card { background:#fff; border:1px solid var(--ap-stone-200); border-radius: var(--r-lg); padding: 26px; margin-top: 28px; }
-  .app-tags { display:flex; flex-wrap:wrap; gap:8px; }
-  @media (max-width: 860px){ .pd-layout{ grid-template-columns:1fr; gap:28px;} .pd-media{ position:static; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto · A&P · INTERTUBEP</title>
+  <meta name="description" content="Catálogo de productos A&P: tuberías y conexiones de PVC de la más alta calidad fabricados en Ecuador por INTERTUBEP S.A.">
+  <meta name="keywords" content="tubería pvc, conexiones pvc, A&P Ecuador, intertubep, catálogo pvc" />
+
+  <!-- Google / Search Engine Tags -->
+  <meta itemprop="name" content="Catálogo de Productos A&P | INTERTUBEP S.A." />
+  <meta itemprop="description" content="Catálogo de productos A&P: tuberías y conexiones de PVC de la más alta calidad fabricados en Ecuador por INTERTUBEP S.A." />
+  <meta itemprop="image" content="https://intertubep.com.ec/assets/img/ap-logo.png" />
+
+  <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+  <meta property="og:title" content="Catálogo de Productos A&P | INTERTUBEP S.A." />
+  <meta property="og:site_name" content="A&P Tuberías y Accesorios" />
+  <meta property="og:url" content="https://intertubep.com.ec/producto.html" />
+  <meta property="og:description" content="Catálogo de productos A&P: tuberías y conexiones de PVC de la más alta calidad fabricados en Ecuador por INTERTUBEP S.A." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://intertubep.com.ec/assets/img/ap-logo.png" />
+  <meta property="og:image:secure_url" content="https://intertubep.com.ec/assets/img/ap-logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A&P Tuberías y Accesorios" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Catálogo de Productos A&P | INTERTUBEP S.A." />
+  <meta name="twitter:description" content="Catálogo de productos A&P: tuberías y conexiones de PVC de la más alta calidad fabricados en Ecuador por INTERTUBEP S.A." />
+  <meta name="twitter:image" content="https://intertubep.com.ec/assets/img/ap-logo.png" />
+
+  <link rel="stylesheet" href="assets/css/ap.css">
+  <style>
+    .pd-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .pd-media {
+      background: #fff;
+      border: 1px solid var(--ap-stone-200);
+      border-radius: var(--r-lg);
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: sticky;
+      top: calc(var(--header-h) + 24px);
+    }
+
+    .pd-spec-card {
+      background: #fff;
+      border: 1px solid var(--ap-stone-200);
+      border-radius: var(--r-lg);
+      padding: 26px;
+      margin-top: 28px;
+    }
+
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .pd-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .pd-media {
+        position: static;
+      }
+    }
+  </style>
 </head>
+
 <body data-page="catalogo">
 
-<section class="section--tight" style="padding-top:28px">
-  <div class="wrap">
-    <p class="breadcrumb" style="color:var(--ap-stone-400);margin-bottom:20px"><a href="index.html" style="color:var(--ap-cyan-deep)">Inicio</a> · <a href="catalogo.html" style="color:var(--ap-cyan-deep)">Catálogo</a> · <span id="bcCat"></span></p>
-    <div id="pdRoot"></div>
-  </div>
-</section>
+  <section class="section--tight" style="padding-top:28px">
+    <div class="wrap">
+      <p class="breadcrumb" style="color:var(--ap-stone-400);margin-bottom:20px"><a href="index.html"
+          style="color:var(--ap-cyan-deep)">Inicio</a> · <a href="catalogo.html"
+          style="color:var(--ap-cyan-deep)">Catálogo</a> · <span id="bcCat"></span></p>
+      <div id="pdRoot"></div>
+    </div>
+  </section>
 
-<section class="section--tight band-cloud" id="relatedSection" style="display:none">
-  <div class="wrap">
-    <h3 style="margin-bottom:28px">Productos relacionados</h3>
-    <div class="grid cols-4" id="relatedGrid"></div>
-  </div>
-</section>
+  <section class="section--tight band-cloud" id="relatedSection" style="display:none">
+    <div class="wrap">
+      <h3 style="margin-bottom:28px">Productos relacionados</h3>
+      <div class="grid cols-4" id="relatedGrid"></div>
+    </div>
+  </section>
 
-<script src="assets/js/products.js"></script>
-<script src="assets/js/site.js"></script>
-<script>
-(function () {
-  var id = new URLSearchParams(location.search).get('id');
-  var p = window.AP_getProduct(id);
-  var root = document.getElementById('pdRoot');
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>
+    (function () {
+      var id = new URLSearchParams(location.search).get('id');
+      var p = window.AP_getProduct(id);
+      var root = document.getElementById('pdRoot');
 
-  if (!p) {
-    document.getElementById('bcCat').textContent = 'Producto';
-    root.innerHTML = '<h1>Producto no encontrado</h1><p class="lead">Vuelve al catálogo para explorar todos los productos A&P.</p><a class="btn btn--primary" href="catalogo.html">Ir al catálogo</a>';
-    return;
-  }
-  document.title = p.name + ' · A&P · INTERTUBEP';
-  document.getElementById('bcCat').textContent = p.name;
+      if (!p) {
+        document.getElementById('bcCat').textContent = 'Producto';
+        root.innerHTML = '<h1>Producto no encontrado</h1><p class="lead">Vuelve al catálogo para explorar todos los productos A&P.</p><a class="btn btn--primary" href="catalogo.html">Ir al catálogo</a>';
+        return;
+      }
+      document.title = p.name + ' · A&P · INTERTUBEP';
+      document.getElementById('bcCat').textContent = p.name;
 
-  var waMsg = encodeURIComponent('Hola A&P, quiero información y cotización del producto: ' + p.name + '.');
-  var waLink = 'https://wa.me/' + window.AP_WA_NUMBER + '?text=' + waMsg;
-  var pillClass = p.tipo === 'Fabricado' ? 'pill--fab' : 'pill--imp';
-  var pillText = p.tipo === 'Fabricado' ? 'Fabricado en Ecuador' : 'Importado · Distribuido';
+      var waMsg = encodeURIComponent('Hola A&P, quiero información y cotización del producto: ' + p.name + '.');
+      var waLink = 'https://wa.me/' + window.AP_WA_NUMBER + '?text=' + waMsg;
+      var pillClass = p.tipo === 'Fabricado' ? 'pill--fab' : 'pill--imp';
+      var pillText = p.tipo === 'Fabricado' ? 'Fabricado en Ecuador' : 'Importado · Distribuido';
 
-  var ficha = window.AP_fichaFor(p.category);
-  var fichaBtn = ficha
-    ? '<a class="btn btn--ghost" href="' + ficha + '" target="_blank" rel="noopener" download>' + window.AP_ICONS.arrow + 'Descargar ficha técnica (PDF)</a>'
-    : '<a class="btn btn--ghost" href="' + waLink + '" target="_blank" rel="noopener">Solicitar ficha técnica</a>';
+      var ficha = window.AP_fichaFor(p.category);
+      var fichaBtn = ficha
+        ? '<a class="btn btn--ghost" href="' + ficha + '" target="_blank" rel="noopener" download>' + window.AP_ICONS.arrow + 'Descargar ficha técnica (PDF)</a>'
+        : '<a class="btn btn--ghost" href="' + waLink + '" target="_blank" rel="noopener">Solicitar ficha técnica</a>';
 
-  root.innerHTML =
-    '<div class="pd-layout">' +
-      '<div class="pd-media">' + window.AP_phImage(p) + '</div>' +
-      '<div>' +
+      root.innerHTML =
+        '<div class="pd-layout">' +
+        '<div class="pd-media">' + window.AP_phImage(p) + '</div>' +
+        '<div>' +
         '<p class="eyebrow eyebrow--ink" style="color:var(--ap-cyan-deep)">' + p.categoryLabel + '</p>' +
         '<h1 style="font-size:clamp(1.8rem,3.4vw,2.8rem)">' + p.name + '</h1>' +
         '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">' +
-          '<span class="pill ' + pillClass + '">' + pillText + '</span>' +
-          (p.norma ? '<span class="pill pill--cyan">Norma ' + p.norma + '</span>' : '') +
+        '<span class="pill ' + pillClass + '">' + pillText + '</span>' +
+        (p.norma ? '<span class="pill pill--cyan">Norma ' + p.norma + '</span>' : '') +
         '</div>' +
         '<p class="lead" style="color:var(--ap-stone-600)">' + p.desc + '</p>' +
         '<div class="hero-cta" style="margin:24px 0 8px">' +
-          '<a class="btn btn--wa" href="' + waLink + '" target="_blank" rel="noopener">' + window.AP_ICONS.whatsapp + 'Cotizar por WhatsApp</a>' +
-          fichaBtn +
+        '<a class="btn btn--wa" href="' + waLink + '" target="_blank" rel="noopener">' + window.AP_ICONS.whatsapp + 'Cotizar por WhatsApp</a>' +
+        fichaBtn +
         '</div>' +
         '<p class="small muted" style="margin-top:4px">No mostramos precios en línea. Escríbenos por WhatsApp y te enviamos cotización; la ficha técnica está disponible en PDF.</p>' +
 
@@ -85,57 +152,90 @@
             var labels = { riego: 'Riego agrícola', construccion: 'Construcción', 'agua-potable': 'Agua potable', desague: 'Desagüe' };
             return '<a class="pill pill--navy" href="aplicaciones.html#' + a + '">' + (labels[a] || a) + '</a>';
           }).join('') + '</div></div>' : '') +
-      '</div>' +
-    '</div>';
+        '</div>' +
+        '</div>';
 
-  // --- Product JSON-LD (SEO) ---
-  (function () {
-    var schema = {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": p.name,
-      "description": p.desc,
-      "category": p.categoryLabel,
-      "brand": { "@type": "Brand", "name": "A&P" },
-      "manufacturer": { "@type": "Organization", "name": "INTERTUBEP S.A." },
-      "material": "PVC 100% virgen",
-      "url": "https://intertubep.com.ec/producto.html?id=" + p.id,
-      "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Vida útil", "value": "50 años" },
-        { "@type": "PropertyValue", "name": "Materia prima", "value": "PVC 100% virgen" }
-      ]
-    };
-    if (p.img) schema.image = "https://intertubep.com.ec/" + p.img;
-    if (p.norma) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Norma", "value": p.norma });
-    (p.specs || []).forEach(function (s) {
-      if (/presi/i.test(s[0])) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Resistencia a la presión", "value": s[1] });
-    });
-    if (p.sizes && p.sizes.length) {
-      schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Diámetros disponibles", "value": p.sizes.join(", ") });
-    }
-    var sc = document.createElement("script");
-    sc.type = "application/ld+json";
-    sc.textContent = JSON.stringify(schema);
-    document.head.appendChild(sc);
-    // meta description dinámica
-    var md = document.querySelector('meta[name="description"]');
-    if (!md) { md = document.createElement("meta"); md.name = "description"; document.head.appendChild(md); }
-    md.content = (p.name + ". " + p.desc).slice(0, 154);
-  })();
+      // --- Product JSON-LD & Dynamic Meta Tags (SEO) ---
+      (function () {
+        var schema = {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": p.name,
+          "description": p.desc,
+          "category": p.categoryLabel,
+          "brand": { "@type": "Brand", "name": "A&P" },
+          "manufacturer": { "@type": "Organization", "name": "INTERTUBEP S.A." },
+          "material": "PVC 100% virgen",
+          "url": "https://intertubep.com.ec/producto.html?id=" + p.id,
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Vida útil", "value": "50 años" },
+            { "@type": "PropertyValue", "name": "Materia prima", "value": "PVC 100% virgen" }
+          ]
+        };
+        var imgUrl = p.img ? "https://intertubep.com.ec/" + p.img : "https://intertubep.com.ec/assets/img/ap-logo.png";
+        schema.image = imgUrl;
 
-  // Related
-  var related = window.AP_PRODUCTS.filter(function (x) { return x.category === p.category && x.id !== p.id; });
-  if (related.length < 4) {
-    window.AP_PRODUCTS.forEach(function (x) {
-      if (related.length < 4 && x.tipo === p.tipo && x.id !== p.id && related.indexOf(x) === -1) related.push(x);
-    });
-  }
-  related = related.slice(0, 4);
-  if (related.length) {
-    document.getElementById('relatedSection').style.display = '';
-    document.getElementById('relatedGrid').innerHTML = related.map(function (x) { return window.AP_renderCard(x); }).join('');
-  }
-})();
-</script>
+        if (p.norma) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Norma", "value": p.norma });
+        (p.specs || []).forEach(function (s) {
+          if (/presi/i.test(s[0])) schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Resistencia a la presión", "value": s[1] });
+        });
+        if (p.sizes && p.sizes.length) {
+          schema.additionalProperty.push({ "@type": "PropertyValue", "name": "Diámetros disponibles", "value": p.sizes.join(", ") });
+        }
+        var sc = document.createElement("script");
+        sc.type = "application/ld+json";
+        sc.textContent = JSON.stringify(schema);
+        document.head.appendChild(sc);
+
+        // Actualizar meta descripción dinámica
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.content = p.desc;
+
+        // Actualizar etiquetas Open Graph dinámicamente
+        var setMeta = function(property, content, attrName) {
+          var name = attrName || "property";
+          var el = document.querySelector('meta[' + name + '="' + property + '"]');
+          if (el) {
+            el.setAttribute("content", content);
+          } else {
+            el = document.createElement("meta");
+            el.setAttribute(name, property);
+            el.setAttribute("content", content);
+            document.head.appendChild(el);
+          }
+        };
+
+        var pageTitle = p.name + " · A&P · INTERTUBEP";
+        setMeta("og:title", pageTitle);
+        setMeta("og:description", p.desc);
+        setMeta("og:image", imgUrl);
+        setMeta("og:image:secure_url", imgUrl);
+        setMeta("og:url", "https://intertubep.com.ec/producto.html?id=" + p.id);
+        setMeta("og:type", "product");
+
+        setMeta("twitter:title", pageTitle, "name");
+        setMeta("twitter:description", p.desc, "name");
+        setMeta("twitter:image", imgUrl, "name");
+
+        setMeta("itemprop:name", pageTitle, "itemprop");
+        setMeta("itemprop:description", p.desc, "itemprop");
+        setMeta("itemprop:image", imgUrl, "itemprop");
+      })();
+
+      // Related
+      var related = window.AP_PRODUCTS.filter(function (x) { return x.category === p.category && x.id !== p.id; });
+      if (related.length < 4) {
+        window.AP_PRODUCTS.forEach(function (x) {
+          if (related.length < 4 && x.tipo === p.tipo && x.id !== p.id && related.indexOf(x) === -1) related.push(x);
+        });
+      }
+      related = related.slice(0, 4);
+      if (related.length) {
+        document.getElementById('relatedSection').style.display = '';
+        document.getElementById('relatedGrid').innerHTML = related.map(function (x) { return window.AP_renderCard(x); }).join('');
+      }
+    })();
+  </script>
 </body>
+
 </html>
