@@ -21,7 +21,7 @@
      "Google Analytics" (recomendado al tener GA4), o pegando la
      <meta> de verificación en el <head> de index.html.
      ============================================================ */
-  var GA4_ID = "G-XXXXXXXXXX"; // ← REEMPLAZAR
+  var GA4_ID = "G-9JN3BJLG6T"; // ← REEMPLAZAR
 
   (function injectSEO() {
     // --- Google Analytics 4 ---
