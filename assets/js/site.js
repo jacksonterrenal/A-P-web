@@ -180,7 +180,7 @@
           '<div>' +
             '<h5>Contacto</h5>' +
             '<div class="footer-contact-row">' + ICONS.pin + '<span><a href="https://maps.app.goo.gl/N2F8XVgW83fLDa5C6" target="_blank" rel="noopener" style="color:#fff">Lorenzo de Garaicoa 3306 y Calle Argentina<br>Guayaquil, Ecuador</a></span></div>' +
-            '<div class="footer-contact-row">' + ICONS.whatsapp + '<a href="' + WA_LINK + '" target="_blank" rel="noopener" style="color:#fff">0967318889</a></div>' +
+            '<div class="footer-contact-row">' + ICONS.whatsapp + '<a href="' + WA_LINK + '" target="_blank" rel="noopener" style="color:#fff">+593 96 731 8889</a></div>' +
             '<div class="footer-contact-row">' + ICONS.mail + '<a href="mailto:ventas@intertubep.com.ec" style="color:#fff">ventas@intertubep.com.ec</a></div>' +
             '<div class="social-strip" style="margin-top:18px">' +
               '<span class="social-ico-group">' +
