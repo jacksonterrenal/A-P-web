@@ -171,6 +171,25 @@
   </div>
 </section>
 
+<!-- ===================== CALCULADORA DESTACADA ===================== -->
+<section class="section">
+  <div class="wrap">
+    <a class="calc-feature reveal" href="calculadora.html#aspersores">
+      <div class="calc-feature-body">
+        <span class="pill pill--riego">Herramienta gratis · Riego</span>
+        <h2>Calcula cuántos aspersores necesitas por hectárea</h2>
+        <p>Ingresa tu marco de riego y el área de tu cultivo. En segundos sabrás cuántos aspersores comprar — y cotizas por WhatsApp al instante. Hecho para usar desde el celular, en el campo.</p>
+        <span class="btn btn--riego">Abrir la calculadora</span>
+      </div>
+      <div class="calc-feature-stat">
+        <span class="calc-feature-num">¿?</span>
+        <span class="calc-feature-unit">aspersores / hectárea</span>
+        <span class="calc-feature-hint">+ caudal, presión, diámetro y pega PVC</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- ===================== CTA DISTRIBUIDORES ===================== -->
 <section class="section band-glow">
   <div class="wrap" style="text-align:center;max-width:780px">
@@ -198,6 +217,24 @@
   </div>
 </section>
 
+<style id="calc-feature-style">
+  .calc-feature { display: grid; grid-template-columns: 1.4fr .9fr; align-items: center; gap: 8px;
+    background: linear-gradient(115deg, #ffffff 0%, #ffffff 52%, var(--line-riego-green-soft, #eaf6cf) 100%);
+    border: 1px solid var(--ap-stone-200); border-left: 6px solid var(--line-riego-green, #9BCC2A);
+    border-radius: var(--r-lg); padding: clamp(26px, 4vw, 44px); text-decoration: none;
+    transition: box-shadow var(--dur-base, 200ms) var(--ease-out, ease), transform var(--dur-base, 200ms) var(--ease-out, ease); }
+  .calc-feature:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .calc-feature-body h2 { margin: 12px 0 10px; color: var(--ap-navy); max-width: 18ch; }
+  .calc-feature-body p { color: var(--ap-stone-600); margin: 0 0 22px; max-width: 48ch; }
+  .calc-feature-stat { text-align: center; border-left: 1px dashed var(--ap-stone-200); padding-left: clamp(16px, 3vw, 36px); }
+  .calc-feature-num { display: block; font-family: var(--font-display, inherit); font-weight: 900; font-size: clamp(3rem, 8vw, 5rem); line-height: 1; color: var(--line-riego-green-deep, #6f9e16); }
+  .calc-feature-unit { display: block; font-weight: 700; color: var(--ap-navy); margin-top: 6px; }
+  .calc-feature-hint { display: block; font-size: .82rem; color: var(--ap-stone-400); margin-top: 10px; }
+  @media (max-width: 760px) {
+    .calc-feature { grid-template-columns: 1fr; }
+    .calc-feature-stat { border-left: 0; border-top: 1px dashed var(--ap-stone-200); padding-left: 0; padding-top: 22px; margin-top: 4px; }
+  }
+</style>
 <script src="assets/js/products.js"></script>
 <script src="assets/js/blog-posts.js"></script>
 <script src="assets/js/site.js"></script>
